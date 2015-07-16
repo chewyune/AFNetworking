@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 #import "AFURLRequestSerialization.h"
+#import "CocoaLumberjack.h"
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <MobileCoreServices/MobileCoreServices.h>
