@@ -507,6 +507,8 @@ forHTTPHeaderField:(NSString *)field
             }
         }
 
+        DDLogInfo(@"#REQ#POST#URL:%@#values:%@", [request.URL absoluteString], query);
+
         if ([self.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) {
             mutableRequest.URL = [NSURL URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? @"&%@" : @"?%@", query]];
         } else {
@@ -1346,6 +1348,8 @@ typedef enum {
 
         [mutableRequest setHTTPBody:[NSPropertyListSerialization dataWithPropertyList:parameters format:self.format options:self.writeOptions error:error]];
     }
+
+    DDLogInfo(@"#REQ#POST#URL:%@#values:%@", [request.URL absoluteString], [NSPropertyListSerialization dataWithPropertyList:parameters format:self.format options:self.writeOptions error:error]);
 
     return mutableRequest;
 }
